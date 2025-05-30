@@ -9,6 +9,10 @@ function MovieCard({ title, description, image, rating }) {
       : rating >= 5
       ? "text-bg-warning"
       : "text-bg-danger";
+
+  const clickTrailer = () => {
+    alert("Coming soon");
+  };
   const [hasLiked, setHasLiked] = useState(false);
   return (
     <>
@@ -20,7 +24,8 @@ function MovieCard({ title, description, image, rating }) {
           <p className="card-text">
             <button onClick={clickTrailer} className="btn btn-primary">
               Watch Trailer
-            </button>
+            </button>{" "}
+            <br />
             <span className={`badge rounded-pill ${ratingClass}`}>
               {" "}
               {rating}/10
