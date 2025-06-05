@@ -1,6 +1,7 @@
 import { useState } from "react";
 import MovieCard from "./components/MovieCard";
 import UserForm from "./components/forms/UserForm";
+import Button from "./components/ButtonComponent";
 
 // Assignment
 /**
@@ -112,6 +113,18 @@ function App() {
             <button type="submit" className="btn btn-primary">
               Search
             </button>
+            <br />
+            <div style={{ padding: "2rem" }}>
+              <Button text="Click Me" color="blue" />
+              <br />
+              <br />
+              <Button text="Disabled Button" disabled={true} />
+            </div>
+            <br />
+            <div className="container">
+              <h2>Toggle Message Example</h2>
+              <ShowHideText />
+            </div>
           </form>
           <div className="row">
             {movies.map((movie, index) => {
@@ -120,21 +133,27 @@ function App() {
                   className="col-12 col-sm-12 col-md-4 col-lg-3 mb-4"
                   key={index}
                 >
-                 {movie.title.toLowerCase().startsWith(searchQuery) && <MovieCard
-                    key={index}
-                    title={movie.title}
-                    description={movie.description}
-                    rating={movie.rating}
-                    image={movie.image}
-                  /> }
+                  {movie.title.toLowerCase().startsWith(searchQuery) && (
+                    <MovieCard
+                      key={index}
+                      title={movie.title}
+                      description={movie.description}
+                      rating={movie.rating}
+                      image={movie.image}
+                    />
+                  )}
                 </div>
               );
             })}
           </div>
 
           <UserForm />
-
         </div>
+        <div style={{ padding: "2rem" }}>
+          <Button text="Click Me" color="blue" />
+          <Button text="Disabled Button" disabled={true} />
+        </div>
+        ;
       </div>
     </>
   );
