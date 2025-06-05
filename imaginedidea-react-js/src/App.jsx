@@ -2,6 +2,7 @@ import { useState } from "react";
 import MovieCard from "./components/MovieCard";
 import UserForm from "./components/forms/UserForm";
 import Button from "./components/ButtonComponent";
+import ShowHideText from "./components/ShowHideText";
 
 // Assignment
 /**
@@ -122,7 +123,7 @@ function App() {
             </div>
             <br />
             <div className="container">
-              <h2>Toggle Message Example</h2>
+              <h3>Toggle Message Example</h3>
               <ShowHideText />
             </div>
           </form>
