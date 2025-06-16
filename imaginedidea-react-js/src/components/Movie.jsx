@@ -1,20 +1,6 @@
 import { useState } from "react";
-import { bootstrap } from "react";
-import MovieCard from "./components/MovieCard";
-import UserForm from "./components/forms/UserForm";
-import Button from "./components/ButtonComponent";
-import ShowHideText from "./components/ShowHideText";
+import MovieCard from "./MovieCard";
 
-// Assignment
-/**
- * For Movie card with:
- * rating >=8 use text-success
- * rating >=5 use text-warning
- * else use text-danger
- *
- * //////Second Part //////////
- * 🎥 Add a Watch Trailer button inside each card.
- */
 const movies = [
   {
     title: "My Card",
@@ -89,7 +75,7 @@ const movies = [
   },
 ];
 
-function App() {
+function Movie() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = (e) => {
@@ -98,71 +84,44 @@ function App() {
   };
 
   return (
-    <>
-      <div className="container mt-8">
-        <h2 className="mt-4"> Movie List </h2>
-        <div className="d-flex flex-wrap">
-          <form onSubmit={handleSearch}>
-            <input
-              type="text"
-              placeholder="Search for a movie"
-              className="form-control"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-            <br />
-
-            <button type="submit" className="btn btn-primary">
-              Search
-            </button>
-            <br />
-            <div style={{ padding: "1rem" }}>
-              <Button
-                type="button"
-                class="btn btn-primary me-2"
-                text="Click Me"
-                color="blue"
-                margin-left="40px"
-              />
-              <Button
-                type="button"
-                class="btn btn-secondary"
-                text="Disabled Button"
-                disabled={true}
-              />
-            </div>
-            <br />
-            <div className="container">
-              <h3>Toggle Message Example</h3>
-              <ShowHideText />
-            </div>
-          </form>
-          <div className="row">
-            {movies.map((movie, index) => {
-              return (
-                <div
-                  className="col-12 col-sm-12 col-md-4 col-lg-3 mb-4"
-                  key={index}
-                >
-                  {movie.title.toLowerCase().startsWith(searchQuery) && (
-                    <MovieCard
-                      key={index}
-                      title={movie.title}
-                      description={movie.description}
-                      rating={movie.rating}
-                      image={movie.image}
-                    />
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          <UserForm />
+    <div className="container mt-8">
+      <h2 className="mt-4"> Movie List </h2>
+      <div className="d-flex flex-wrap">
+        <form onSubmit={handleSearch}>
+          <input
+            type="text"
+            placeholder="Search for a movie"
+            className="form-control"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button type="submit" className="btn btn-primary">
+            Search
+          </button>
+        </form>
+        <div className="row">
+          {movies.map((movie, index) => {
+            return (
+              <div
+                className="col-12 col-sm-12 col-md-4 col-lg-3 mb-4"
+                key={index}
+              >
+                {movie.title.toLowerCase().startsWith(searchQuery) && (
+                  <MovieCard
+                    key={index}
+                    title={movie.title}
+                    description={movie.description}
+                    rating={movie.rating}
+                    image={movie.image}
+                  />
+                )}
+              </div>
+            );
+          })}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
-export default App;
+export default Movie;
