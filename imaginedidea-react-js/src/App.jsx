@@ -1,7 +1,7 @@
-import {BrowserRouter, Routes, Route} from "react-router-dom"
-import Home from "./components/Home"
-import About from "./components/About"
-import Contact from "./components/Contact"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
 import Movie from "./components/Movie";
 import NotFound from "./components/NotFound";
@@ -10,10 +10,9 @@ import PostDetails from "./components/PostDetails";
 import CreatePost from "./components/CreatePost";
 
 function App() {
-
   return (
     <>
-    <BrowserRouter>
+      <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />}></Route>
@@ -25,8 +24,7 @@ function App() {
           <Route path="/posts/:id" element={<PostDetails />}></Route>
           <Route path="/posts/create" element={<CreatePost />}></Route>
         </Routes>
-    </BrowserRouter>
-    
+      </BrowserRouter>
     </>
   );
 }
