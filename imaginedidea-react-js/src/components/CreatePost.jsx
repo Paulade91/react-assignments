@@ -9,7 +9,6 @@ function CreatePost() {
 
   const CREATED = 201;
 
-  // ✅ Validate inputs on change
   useEffect(() => {
     const newErrors = {};
 
