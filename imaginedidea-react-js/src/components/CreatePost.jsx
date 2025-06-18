@@ -13,7 +13,7 @@ function CreatePost() {
     const newErrors = {};
 
     if (!title.trim()) {
-      newErrors.title = "Title is required.";
+      newErrors.title;
     } else if (title.length < 4) {
       newErrors.title = "Title must be at least 4 characters.";
     } else if (title.length > 20) {
@@ -21,7 +21,7 @@ function CreatePost() {
     }
 
     if (!body.trim()) {
-      newErrors.body = "Body is required.";
+      newErrors.body;
     } else if (body.length < 10) {
       newErrors.body = "Body must be at least 10 characters.";
     } else if (body.length > 200) {
